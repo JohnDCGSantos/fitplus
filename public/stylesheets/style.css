@@ -1,12 +1,774 @@
+* {
+  margin: 0px;
+  padding: 0;
+}
 body {
-  padding: 50px;
+  color: var(white);
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 100%;
+/* background-image: url("/images/everything-you-need-know-about-fitness-1440x810.jpg");*/
+  position: relative;
+  background-color: #F0F0F0;
+margin: 0;
+height: 100%;
 }
-
+.profileContainer{
+  margin-left: 10px;
+}
+.custom-bg {
+  background-color: #93BADA; /* Change this to your desired color */
+}
 a {
-  color: #00b7ff;
+  color: #060707;
+}
+.custom-bg a{
+  color: #060707;
+  text-decoration: none;
+  margin: 0;
+}
+a:hover {
+  color: rgb(250, 249, 247);
+}
+.navbar-expand-lg{
+background-color: #081017;
+}
+.helperTipsAboutUs{
+  display: flex;
+  justify-content: center;
+  width: 55%;
+  padding: 30px 11px;
+  background-color: #FCFCFA;
+  border-radius: 15px;
+  height: auto;
+  margin-top: 10px;
+}
+.signupForm{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+/*Mobile devices - 300px to 480px */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  html{
+    font-size: 14px;
+  }
+  .helperTips p{
+    width: 40%;
+    font-size: 0.8rem;
+  }
+  .goToWorkoutButton {
+    width: 30%;
+    font-size: 0.6rem;
+  }
+  .yourPlansButtons{
+    border-radius: 10px;
+    background-color: #E1873C;
+    padding: 10px;
+    height: auto;
+    width: 30vw;
+   }
+   .yourPlansButtonsForm{
+    margin-bottom: 10px;
+   }
+  .mb-3{
+    display: column;
+    align-items: center;
+    margin-left: 30px;
+    width: 40%;
+  }
+  #toggleButton{
+    width: 40vw;
+  }
+  #LoginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-controlSignup{
+    width: 50vw;
+    border-radius: 5px;
+  }
+  .formEditPlanPage{
+    display: flex;
+    height: 30px;
+    width: 70vw;
+  }
+  #login-email{
+    width: 50vw;
+    border-color: #060707;
+  }
+  #login-password{
+    width: 50vw;
+    border-color: #060707;
+  }
+  .btn-primary{
+    width: 45vw;
+    margin-left: 20px;
+    padding: 10px;
+  }
+}
+ /*iPads, Tablets - 481px to 766px */
+@media screen and (min-width: 481px) and (max-width: 766px) {
+  html{
+    font-size: 15px;
+  }
+  .helperTips{
+    width: 35%;
+    font-size: 0.85rem;
+    margin: 10px;
+  }
+  .goToWorkoutButton {
+    width: 40%;
+    font-size: 0.7rem;
+  }
+  .yourPlansButtons{
+    border-radius: 10px;
+    background-color: #E1873C;
+    padding: 10px;
+    height: auto;
+    width: 25vw;
+  }
+  .mb-3{
+    align-items: center;
+    margin-left: 30px;
+    width: 40%;
+  }
+  #toggleButton{
+    width: 40vw;
+  }
+  #LoginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+  }
+  .form-controlSignup{
+    width: 50vw;
+    border-radius: 5px;
+  }
+  .formEditPlanPage{
+    display: flex;
+    height: 30px;
+    width: 70vw;
+  }
+  #login-email{
+    width: 50vw;
+    border-color: #060707;
+  }
+  #login-password{
+    width: 50vw;
+    border-color: #060707;
+  }
+}
+/* Small screens, laptops - 767px to 1024px */
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+  html{
+    font-size: 16px;
+  }
+  .helperTips{
+    width: 40%;
+    font-size: 0.9rem;
+    margin: 10px;
+  }
+  .goToWorkoutButton {
+    width: 35%;
+    font-size: 0.8rem;
+  }
+  .yourPlansButtons{
+    border-radius: 10px;
+    background-color: #E1873C;
+    padding: 10px;
+    height: auto;
+    width: 20vw;
+  }
+  .mb-3{
+    align-items: center;
+    margin-left: 30px;
+    width: 30%;
+  }
+  #toggleButton{
+    width: 25vw;
+  }
+  #LoginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+  }
+  .form-controlSignup{
+    width: 20vw;
+    border-radius: 5px;
+  }
+  .formEditPlanPage{
+    display: flex;
+    height: 35px;
+    width: 50vw;
+  }
+  #login-email{
+    width: 25vw;
+    border-color: #060707;
+  }
+  #login-password{
+    width: 25vw;
+    border-color: #060707;
+  }
+  .btn-primary{
+    width: 25vw;
+    margin-left: 20px;
+    padding: 10px;
+  }
+}
+/* Desktops, large screens - 1025px to 1200px */
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
+  html{
+    font-size: 17px;
+  }
+  .helperTips{
+    width: 45%;
+    font-size: 1rem;
+    margin: 10px;
+  }
+  .goToWorkoutButton {
+    width: 30%;
+    font-size: 0.9rem;
+  }
+  .yourPlansButtons{
+    border-radius: 10px;
+    background-color: #E1873C;
+    padding: 10px;
+    height: auto;
+    width: 15vw;
+  }
+  .mb-3{
+    align-items: center;
+    margin-left: 30px;
+    width: 30%;
+  }
+  #toggleButton{
+    width: 35vw;
+
+  }
+  #LoginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+    margin: 50px;
+  }
+  .form-controlSignup{
+    width: 30vw;
+    border-radius: 5px;
+  }
+  .formEditPlanPage{
+    display: flex;
+    height: 30px;
+    width: 50vw;
+  }
+  #login-email{
+    width: 25vw;
+    border-color: #060707;
+  }
+  #login-password{
+    width: 25vw;
+    border-color: #060707;
+  }
+}
+/* Extra large screens, TV - 1201px and more */
+@media screen and (min-width: 1201px) {
+  .helperTips{
+    width: 50%;
+    font-size: 1rem;
+    margin: 10px;
+  }
+  .goToWorkoutButton {
+    width: 15%;
+    font-size: 1rem;
+  }
+  .yourPlansButtons{
+    border-radius: 10px;
+    background-color: #E1873C;
+    padding: 10px;
+    height: auto;
+    width: 15vw;
+  }
+  .mb-3{
+    align-items: center;
+    margin-left: 30px;
+    width: 25%;
+  }
+  #toggleButton{
+    width: 20vw;
+    margin-top: 30px;
+  }
+  #LoginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px;
+  }
+  .form-controlSignup{
+    width: 15vw;
+    border-radius: 5px;
+  }
+  .formEditPlanPage{
+    display: flex;
+    height: 35px;
+    width: 30vw;
+  }
+  #login-email{
+    width: 20vw;
+    border-color: #060707;
+  }
+  #login-password{
+    width: 20vw;
+    border-color: #060707;
+  }
+}
+h1 {
+  text-align: center;
+}
+.homePageContainer{
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+.helperHomePage{
+    width: 10vw;
+    height: 20vh;
+  }
+.homepageTextContainer p{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 3%;
+  margin-left: 10px;
+  padding: 30px 11px;
+  background-color:#fcfcfa;
+  border-radius: 15px;
+  }
+.text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 85%;
+  height: 3%;
+  padding: 30px 11px;
+  background-color:#fcfcfa;
+  border-radius: 15px;
+  }
+/* #footer{
+  width: 100vw;
+  height: 8vh;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  background-attachment: scroll;
+    background-position: 0% 0%;
+    position: fixed;
+} */
+#logoImg img {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 8vw;
+  margin-top: 0;
+}
+.form-control{
+  width: 30vw;
+  border-color: #060707;
+}
+#LoginForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#additionalFieldsDiv{
+  display: flex;
+}
+.col-md-6{
+  width: 40vw;
+  border-color: #060707;
+}
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+}
+.searchBox{
+  width: 30vw;
+  height: 40px;
+  border-radius:5px;
+}
+.searchButtonMainPage{
+border-radius:15px;
+width: 20vw;
+height: 30px;
+background-color: #E1873C;
+margin-top: 5px;
+font-size: 0.8rem;
+}
+.searchButtonMainPage:hover {
+  background-color: #96560D;
+  /* You can change other styles as per your preference for the hover effect */
+}
+.testContainer{
+  height:200px;
+}
+.helperAwardsPageContainer{
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+height: 300px;
+  }
+.mascotImgAwardsPage{
+  width: 100px;
+  height: 20vh;
+  margin-top: 10%;
+}
+.helperMessage{
+margin-top: 10%;
+}
+.helperMessage p{
+  display: flex;
+flex-direction: column;
+justify-content: center;
+width: 85%;
+height: 3%;
+padding: 30px 11px;
+background-color:#fcfcfa;
+border-radius: 15px;
+}
+#form{
+  width:100vw;
+  height:50px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.logoutButton{
+  width: 100px;
+  height: 50px;
+  font-size: 1rem;
+  background-color: #2980B9;
+  border-radius: 15px;
+}
+#gifLogout{
+width: 300px;
+height: 300px;
+}
+.gifContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+}
+/* about us page*/
+.text-container{
+display: flex;
+flex-direction: row;
+justify-content: center;
+width: 100vw;
+margin-top: 100px;
+}
+.textAboutUsPage{
+  font-size: 80%;
+  width: 30vw;
+display: flex;
+flex-direction: column;
+background-color: white;
+border-radius: 10px;
+padding: 20px;
+}
+/*Profile*/
+.d-grid{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.btn-success{
+  width: 400px;
+}
+.formContainerDelete{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+.homePageContainer{
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+.helperHomePage{
+    width: 10vw;
+    height: 20vh;
+  }
+.homepageTextContainer p{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 3%;
+  padding: 30px 11px;
+  background-color:#fcfcfa;
+  border-radius: 15px;
+  }
+.text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 85%;
+  height: 3%;
+  padding: 30px 11px;
+  background-color:#fcfcfa;
+  border-radius: 15px;
+  }
+.waterImage{
+  width: 150px;
+  height: 150px;
+  float: right;
+  margin-right: 30%;
+}
+#footer{
+  width: 100vw;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  background-attachment: scroll;
+    background-position: 0% 0%;
+    position: fixed;
+}
+#logoImg img {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 90px;
+  margin-top: 0;
+}
+.form-control{
+  width: 30vw;
+  border-color: #060707;
 }
 
-h1 {
-  color: 15px;
+ #bodyPlanExercises{
+  
+  margin-left: 15px;
+}
+
+/*
+.planExercisesValues{
+  font-size: 1.2rem;
+}
+.textImgContainer{
+  display: flex;
+justify-content: space-between;
+}
+.imagesContainer{
+  display: flex;
+  flex-direction: column;
+  margin-right: 60px;
+} */
+#LoginForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#additionalFieldsDiv{
+  display: flex;
+}
+.col-md-6{
+  width: 40vw;
+  border-color: #060707;
+}
+.formContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
+}
+.searchBox{
+  width: 150px;
+  height: 40px;
+  border-radius:5px;
+}
+.searchButton{
+  border-radius:15px;
+width: 20vw;
+height: 30px;
+background-color: #3889D0;
+margin-top: 5px;
+}
+.searchButton:hover {
+  background-color: #2980B9;
+  /* You can change other styles as per your preference for the hover effect */
+}
+::placeholder {
+    font: 0.8rem/2 sans-serif;
+    padding:5px;
+}
+.mascotMainPage{
+  width: 10vw;
+  height: 20vh;
+}
+.helperTips p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 65%;
+  padding: 30px 11px;
+  background-color: #FCFCFA;
+  border-radius: 15px;
+  height: auto;
+  margin-top: 10px;
+}
+#selectedExercisesContainer{
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 10px;
+min-height: 300px;
+}
+.editButton{
+  width: 95px;
+  background-color: #2980B9;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+}
+.deleteButton{
+  width: 95px;
+  background-color: #2980B9;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 5px;
+}
+.startButton{
+  width: 95px;
+  background-color: #2980B9;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 5px;
+}
+.selectedExercisesContainer li{
+  display: flex;
+  flex-direction: column;
+  }
+.buttonsContainer{
+  display: flex;
+  flex-direction: column;
+}
+.imgContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 10px;
+}
+.planExercisesValues{
+  width: 50vw;
+}
+.exerciseDetailsImg{
+  width: 275px;
+  height: 225px;
+  margin-bottom: 5px;
+}
+.exerciseDetailsImg2{
+  width: 275px;
+  height: 225px;
+}
+.ExerciseDetailsContainer{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.ImgTextRow{
+  display:flex;
+}
+.keysExerciseDetails{
+display: flex;
+flex-direction: column;
+}
+.formExerciseDetails{
+  margin: 0px;
+  padding: 0px;
+}
+.backLinkExerciseDetails{
+  padding: 10px;
+}
+#bodyEditPlans{
+  margin-left: 10px;
+}
+.addExerciseButtonContainer{
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+.addExerciseButtonEditPlanPage{
+  padding: 10px;
+  background-color: #E1873C;
+  border-radius: 10px;
+  margin-top:10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+}
+.profileStyle{
+  margin-left: 10px;
+}
+.planExercisesContainer{
+display: flex;
+}
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.imageDivHome{
+  width: 100%;
+  height: 100%
+}
+.bg{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.card {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  opacity: 0.8;
+  border-radius: 10px;
+}
+.row2{
+  width: 100vw;
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center ;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  background-image: url('/images/backgroundIMG.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }

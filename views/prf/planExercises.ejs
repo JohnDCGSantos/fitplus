@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plan Exercises</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+    <div id = 'bodyPlanExercises'>
+    <h1>Exercises in <%= plan.name %></h1>
+        <% exercises.forEach(exercise => { %>
+           <h2> <%= exercise.name %> </h2>
+           <div class = 'textImgContainer'>
+           <div class="planExercisesValues">
+           <ul>
+            <li><strong>Force:</strong> <%= exercise.force %></li>
+            <li><strong>Level:</strong> <%= exercise.level %></li>
+            <li><strong>Mechanic:</strong> <%= exercise.mechanic %></li>
+            <li><strong>Equipment:</strong> <%= exercise.equipment %></li>
+            <li><strong>Primary Muscles:</strong> <%= exercise.primaryMuscles %></li>
+            <li><strong>Category:</strong> <%= exercise.category %></li>
+            <li><strong>Instructions:</strong> <%= exercise.instructions %></li>
+           </div>
+<!-- Add other exercise details here -->
+<div class ='imagesContainer' >
+<img class= 'exerciseDetailsImg' src="<%= exercise.image1 %>" alt="Image 1">
+<!-- Display image 2 -->
+            <img class= 'exerciseDetailsImg2' src="<%= exercise.image2 %>" alt="Image 2">
+       <% }); %>
+    </div>
+</div>
+    
+             </ul>
+            </div>
+   <a href="/auth/prf/workoutPage">Back to Plans</a>
+</div>
+</div>
+</body>
+</html>

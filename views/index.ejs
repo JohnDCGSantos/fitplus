@@ -1,2 +1,121 @@
-<h1><%= appTitle %> 🚀</h1>
-<p>Welcome Ironhacker!</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fitness App Signup</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<div class="row2">
+<body >
+  <main class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="text-center">Fitness App Signup/Login</h1>
+          </div>
+          <div class="card-body">
+            <!-- Signup Form -->
+            <div id="signup-form-div">
+              <form id="signup-form" action="/auth/signup" method="post">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email:</label>
+                  <input type="email" id="email" name="email" class="form-controlSignup" required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password:</label>
+                  <input type="password" id="password" name="password" class="form-controlSignup" required>
+                </div>
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username:</label>
+                  <input type="text" id="username" name="username" class="form-controlSignup" required>
+                </div>
+                <!-- "additional fields" toggle button -->
+                <button type="button" id="toggleButton" class="btn btn-secondary mt-3">Show Additional Fields</button>
+                <!-- Additional Fields Div - initially hidden -->
+                <div id="additionalFieldsDiv" style="display: none;">
+                  <div class="mb-3">
+                    <label class="form-label">Weight</label>
+                    <input name="profile.weight" type="number" class="form-control" required />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Height</label>
+                    <input name="profile.height" type="number" class="form-control" required />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Age</label>
+                    <input name="profile.age" type="number" class="form-control" required />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Gender</label>
+                    <select name="profile.gender" class="form-select" required>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Signup</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!--  login form - initially hidden -->
+            <div id="login-form-div" style="display: none;">
+              <form id="login-form" action="/auth/login" method="post">
+                <div class="mb-3">
+                  <label for="login-email" class="form-label">Email:</label>
+                  <input type="email" id="login-email" name="email" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                  <label for="login-password" class="form-label">Password:</label>
+                  <input type="password" id="login-password" name="password" class="form-control" required>
+                </div>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+              </form>
+            </div>
+            <!--  "login toggle" button -->
+            <div class="d-grid">
+              <button type="button" id="login-toggle-button" class="btn btn-secondary mt-3">Switch to Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+  <script>
+    const toggleButton = document.getElementById('toggleButton');
+    const additionalFieldsDiv = document.getElementById('additionalFieldsDiv');
+    const signupFormDiv = document.getElementById('signup-form-div');
+    const loginFormDiv = document.getElementById('login-form-div');
+    const loginToggleButton = document.getElementById('login-toggle-button');
+    toggleButton.addEventListener('click', () => {
+      if (additionalFieldsDiv.style.display === 'none') {
+        additionalFieldsDiv.style.display = 'block';
+        toggleButton.textContent = "Hide Additional Fields";
+      } else {
+        additionalFieldsDiv.style.display = 'none';
+        toggleButton.textContent = "Show Additional Fields";
+      }
+    });
+    // Function to toggle between signup and login forms
+    function toggleForms() {
+      if (signupFormDiv.style.display === 'none') {
+        signupFormDiv.style.display = 'block';
+        loginFormDiv.style.display = 'none';
+        loginToggleButton.textContent = "Switch to Login";
+      } else {
+        signupFormDiv.style.display = 'none';
+        loginFormDiv.style.display = 'block';
+        loginToggleButton.textContent = "Switch to Signup";
+      }
+    }
+    // Toggle between signup and login forms when clicking "Switch to Login"
+    loginToggleButton.addEventListener('click', () => {
+      toggleForms();
+    });
+  </script>
+  </div>
+</body>
+</div>
+</html>

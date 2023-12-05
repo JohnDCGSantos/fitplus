@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <h1>Search Results</h1>
+    <% if (results.length === 0) { %>
+        <p>No results found.</p>
+    <% } else { %>
+        <ul>
+            <% results.forEach(exercise => { %>
+              <li>
+                <h2><a href="/auth/srch/exercise/<%= exercise.id %>"><%= exercise.name %></a></h2>
+                <p>Force: <%= exercise.force %></p>
+                <!-- Add other exercise details as needed -->
+              </li>
+            <% }) %>
+          </ul>
+    <% } %>
+    <a href="/auth/prf/mainPage">Go back to Main Page</a>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ... Your head content ... -->
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body >
+  <div id="bodyEditPlans">
+  <h1>Edit Plan</h1>
+<!-- Form to update the plan name -->
+<form class="formEditPlanPage" action="/auth/prf/workoutPage/<%= plan._id %>/edit" method="POST">
+    <input type="text" name="planName" value="<%= plan.name %>" required>
+    <button type="submit" class="btn btn-primary">Update Plan Name</button>
+  </form>
+  <!-- Form to add exercises to the plan -->
+  <div class="addExerciseButtonContainer">
+<button class="addExerciseButtonEditPlanPage"><a  href="/auth/prf/workoutPage/<%= plan._id %>/edit/addexercise">Add Exercises</a></button>
+</div>
+  <!-- Display the current exercises in the plan -->
+  <div id="selectedExercisesContainer">
+    <h2>Selected Exercises:</h2>
+    <ul>
+      <% plan.exercises.forEach(exercise => { %>
+      <li><%= exercise %></li>
+      <% }) %>
+    </ul>
+  </div>
+  <!-- Form to remove exercises from the plan -->
+  <div class="formContainerDelete">
+  <form  action="/auth/prf/workoutPage/<%= plan._id %>/removeExercise" method="POST">
+    <div class = 'formExercisesToDelete'>
+    <% plan.exercises.forEach(exercise => { %>
+      <label>
+        <input type="checkbox" name="exerciseToRemove" value="<%= exercise %>" />
+        <%= exercise %>
+      </label>
+      <br>
+    <% }) %>
+  </div>
+    <button type="submit" class="btn btn-danger">Remove Selected Exercises</button>
+  </form>
+  <!-- Link to go back to the workout page -->
+  <a class = 'goToWorkoutButton' href="/auth/prf/workoutPage">Go back to Workout Page</a>
+</div>
+</div>
+<!-- editPlan.ejs -->
+<!-- ... Your existing content ... -->
+<script>
+    const exerciseSearchInput = document.getElementById('exerciseSearchInput');
+    const exerciseDropdown = document.getElementById('exerciseDropdown');
+    const exerciseSearchForm = document.getElementById('exerciseSearchForm');
+    exerciseSearchForm.addEventListener('submit', async (event) => {
+      event.preventDefault(); // Prevent form submission since we are handling it manually
+      const query = exerciseSearchInput.value;
+      if (!query) {
+        exerciseDropdown.innerHTML =
+          '<option value="" disabled selected>Select an exercise to add</option>';
+        return;
+      }
+      try {
+        const response = await fetch(`/auth/prf/exercises/search_results?q=${encodeURIComponent(
+          query
+        )}`);
+        const data = await response.json();
+        const optionsHTML = data.map(
+          (exercise) => `<option value="${exercise.name}">${exercise.name}</option>`
+        );
+        exerciseDropdown.innerHTML = optionsHTML.join('');
+      } catch (error) {
+        console.error('Error fetching exercise search results:', error);
+      }
+    });
+    exerciseSearchForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const exerciseToAdd = exerciseDropdown.value;
+      if (!exerciseToAdd) {
+        return;
+      }
+      try {
+        const response = await fetch(`/auth/prf/workoutPage/<%= plan._id %>/addExercise`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ exerciseToAdd }),
+        });
+        if (response.ok) {
+          // Refresh the page after adding the exercise
+          window.location.reload();
+        } else {
+          console.error('Error adding exercise to plan:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error adding exercise to plan:', error);
+      }
+    });
+  </script>
+  <script src="/js/script.js"></script>
+</body>
+</html>
