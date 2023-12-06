@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body id="mainPageCenter">
+  <h1>Main Page</h1>
+  <!-- Navigation Bar -->
+  <nav>
+    <!-- ... your navigation links ... -->
+  </nav>
+  <!-- Search Form -->
+  <form class="formContainer" action="/auth/srch/search_results" method="post">
+    <input type="text" class="searchBox" name="query" placeholder="Enter exercise keyword">
+    <button type="submit" class="searchButtonMainPage">Search</button>
+  </form>
+    <div class='helperTips'>
+      <p>In this page you can search the exercises</p>
+      <p>Let me help you choose the best exercises!</p>
+      <p>Think about what you want to train today (upper body, lower body, or all)</p>
+      <p>Start slowly! Take your time; the results will show up!</p>
+      <p>After selecting the exercise you want you just have to scroll down and create a plan!</p>
+    </div>
+  <!-- Display the selected exercise name if available -->
+  <div id="selectedExercisesContainer">
+    <% if (selectedExercises && selectedExercises.length > 0) { %>
+      <h2>Selected Exercises:</h2>
+      <ul>
+        <% selectedExercises.forEach(exercise => { %>
+          <li><%= exercise %></li>
+        <% }) %>
+      </ul>
+    <% } else { %>
+      <p>No exercises selected.</p>
+    <% } %>
+<form action="/auth/prf/createPlan" method="post">
+  <input type="text" name="planName" placeholder="Plan Name" required>
+  <!-- Use JSON.stringify to convert the selectedExercises array to a string -->
+  <input type="hidden" name="selectedExercises" value="<%= JSON.stringify(selectedExercises) %>">
+  <button type="submit" class="searchButtonMainPage">Create Plan</button>
+</form>
+<a class='goToWorkoutButton' href="/auth/prf/workoutPage">Go to Workout Page</a>
+  </div>
+  <script src="/js/script.js"></script>
+</body>
+</html>

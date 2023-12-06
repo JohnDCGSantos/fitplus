@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Profile Page</title>
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <h1>Welcome to your profile page, <%= currentUser.username %></h1>
+  <div class="profileContainer">
+    <div class="mt-4">
+      <h2>About me:</h2>
+      <div class="row">
+        <div class="col">
+          <p><strong>Weight:</strong> <%= user.profile.weight %></p>
+          <p><strong>Height:</strong> <%= user.profile.height %></p>
+        </div>
+        <div class="col">
+          <p><strong>Age:</strong> <%= user.profile.age %></p>
+          <p><strong>Gender:</strong> <%= user.profile.gender %></p>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4">
+      <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#updateFieldsDiv" aria-expanded="false" aria-controls="updateFieldsDiv">Update</button>
+      <div class="collapse" id="updateFieldsDiv">
+        <form action="/auth/prf/profile" method="POST">
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <label for="weight">Weight</label>
+              <input name="weight" type="number" class="form-control" required />
+            </div>
+            <div class="col-md-4">
+              <label for="height">Height</label>
+              <input name="height" type="number" class="form-control" required />
+            </div>
+            <div class="col-md-4">
+              <label for="age">Age</label>
+              <input name="age" type="number" class="form-control" required />
+            </div>
+          </div>
+          <div class="d-grid mt-3">
+            <button type="submit" class="btn btn-success">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- Add Bootstrap JS -->
+</body>
+</html>

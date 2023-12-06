@@ -1,0 +1,62 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<h1>Signup</h1>
+<form action="/auth/signup" method="POST" id="signupForm">
+  <!-- Existing fields (Username, Email, Password) -->
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input name="username" type="text" class="form-control" id="username" required />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">E-Mail</label>
+    <input name="email" type="email" class="form-control" id="email" required />
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input name="password" type="password" class="form-control" id="password" required />
+  </div>
+  <!-- Button to toggle the additional fields -->
+  <button type="button" class="btn btn-primary mb-3" id="toggleButton">Add More Info</button>
+  <!-- Container for additional fields (hidden by default) -->
+  <div id="additionalFieldsDiv" style="display: none;">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label>Weight</label>
+        <input name="profile.weight" type="number" class="form-control" required />
+      </div>
+      <div class="col-md-6">
+        <label>Height</label>
+        <input name="profile.height" type="number" class="form-control" required />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label>Age</label>
+        <input name="profile.age" type="number" class="form-control" required />
+      </div>
+      <div class="col-md-6">
+        <label>Gender</label>
+        <select name="profile.gender" class="form-select" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="d-grid">
+      <button type="submit" class="btn btn-primary">Signup</button>
+    </div>
+  </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const toggleButton = document.getElementById('toggleButton');
+  const additionalFieldsDiv = document.getElementById('additionalFieldsDiv');
+  toggleButton.addEventListener('click', () => {
+    if (additionalFieldsDiv.style.display === 'none') {
+      additionalFieldsDiv.style.display = 'block';
+    } else {
+      additionalFieldsDiv.style.display = 'none';
+    }
+  });
+</script>

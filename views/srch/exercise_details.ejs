@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise Details</title>
+  <!-- Add any necessary CSS and JS -->
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <h1>Exercise Details</h1>
+  <div class = 'ExerciseDetailsContainer'>
+    <div class="ImgTextRow">
+    <div class = 'keysExerciseDetails'>
+  <% if (exercise) { %>
+    <h2><%= exercise.name %></h2>
+    <p>Force: <%= exercise.force %></p>
+    <p>Level: <%= exercise.level %></p>
+    <p>Mechanic: <%= exercise.mechanic %></p>
+    <p>Equipment: <%= exercise.equipment %></p>
+    <p>Primary Muscles: <%= exercise.primaryMuscles %></p>
+    <p>Category: <%= exercise.category %></p>
+    <p>Instructions: <%= exercise.instructions %></p>
+    <!-- Add other exercise details as needed -->
+  </div>
+    <div class="imgContainer">
+    <img class="exerciseDetailsImg" src="<%= image1 %>" alt="Image 1">
+    <img class="exerciseDetailsImg2" src="<%= image2 %>" alt="Image 2">
+  </div>
+</div>
+    <!-- Add form to select the exercise -->
+      <form class ='formExerciseDetails' action="/auth/exercise_selection/add" method="POST">
+        <input type="hidden" name="exerciseName" value="<%= exercise.name %>">
+        <button type="submit" class="btn btn-primary">Add to Plan</button>
+      </form>
+    <% } else { %>
+      <p>Exercise not found.</p>
+    <% } %>
+    <a class = 'backLinkExerciseDetails' href="/auth/prf/mainPage">Go back to Main Page</a>
+  </div>
+  </body>
+  </html>
